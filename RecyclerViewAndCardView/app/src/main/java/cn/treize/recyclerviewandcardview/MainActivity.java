@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,14 @@ public class MainActivity extends ActionBarActivity {
 
         ContactAdapter adapter = new ContactAdapter(createList(30));
         recyclerView.setAdapter(adapter);
+
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(),new RecyclerItemClickListener.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getApplicationContext(),"this is " + (position+1) +" item", Toast.LENGTH_LONG).show();
+            }
+        }));
     }
 
 
