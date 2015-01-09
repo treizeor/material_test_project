@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onItemClick(View view, int position) {
+                ((TextView)view.findViewById(R.id.title)).setText("onClick~~~~~~~~~~~~~~~");
                 Toast.makeText(getApplicationContext(),"this is " + (position+1) +" item", Toast.LENGTH_LONG).show();
             }
         }));
